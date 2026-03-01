@@ -1,0 +1,22 @@
+<div class="loader"></div>
+
+<style>
+    body {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+        background: #0f172a;
+    }.loader {
+        width: 56px;
+        height: 56px;
+        border-radius: 50%;
+        border: 20px solid #e5e7eb;
+        border-top: 20px solid #0f172a;
+        animation: spin .8s linear infinite;
+    }
+    @keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>

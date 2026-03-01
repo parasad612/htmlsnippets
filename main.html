@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<head>
+    <title>Rock Paper Scissors</title>
+</head>
+<body>
+    <button onclick="play('rock')">Rock</button>
+    <button onclick="play('paper')">Paper</button>
+    <button onclick="play('scissors')">Scissors</button>
+    <div id="computer-choice" style="margin-top:20px;font-size:2em;height:1.5em;">
+        <!-- Computer's choice will appear here -->
+    </div>
+
+    <script>
+        let choices = ['rock', 'paper', 'scissors'];
+
+        function play(userChoice) {
+            let computerChoice = '';
+            let display = document.getElementById('computer-choice');
+            let shuffleIndex = 0;
+            let shuffleInterval;
+            let waitDuration = 2000; // 2 seconds
+
+            // Start shuffling animation
+            shuffleInterval = setInterval(() => {
+                shuffleIndex = (shuffleIndex + 1) % choices.length;
+                display.textContent = choices[shuffleIndex];
+            }, 100);
+
+            // After 2 seconds, stop shuffling and pick computer's choice
+            setTimeout(() => {
+                clearInterval(shuffleInterval);
+                computerChoice = choices[shuffleIndex]; // Use last shown choice
+                display.textContent = computerChoice;
+
+                // Wait another 2 seconds before showing alert
+                setTimeout(() => {
+                    // Determine the winner
+                    if (userChoice === computerChoice) {
+                        alert("You picked " + userChoice + ", Computer picked " + computerChoice + ". \nIt's a tie!");
+                    } else if (
+                        (userChoice === 'rock' && computerChoice === 'scissors') ||
+                        (userChoice === 'paper' && computerChoice === 'rock') ||
+                        (userChoice === 'scissors' && computerChoice === 'paper')
+                    ) {
+                        alert("You picked " + userChoice + ", Computer picked " + computerChoice + ". \nYou win!");
+                    } else {
+                        alert("You picked " + userChoice + ", Computer picked " + computerChoice + ". \nYou lose!");
+                    }
+                }, waitDuration);
+            }, waitDuration);
+        }
+
+    </script>
+
+    
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Dark Mode Template</title>
+
+    <style>
+        /* ---------- THEME VARIABLES ---------- */
+
+        /* default (light) */
+        :root {
+            --bg: #ffffff;
+            --text: #111111;
+            --card: #f3f3f3;
+            --border: #d0d0d0;
+            --link: #0066ff;
+        }
+
+        /* dark mode */
+        .dark {
+            --bg: #0f1115;
+            --text: #e6e6e6;
+            --card: #1a1d24;
+            --border: #2b2f38;
+            --link: #4da3ff;
+        }
+
+        /* ---------- USE THE VARIABLES ---------- */
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: sans-serif;
+            margin: 0;
+            padding: 20px;
+            transition: .25s;
+        }
+
+        .card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 10px;
+        }
+
+        a {
+            color: var(--link)
+        }
+
+        button {
+            margin-top: 20px;
+            padding: 8px 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button onclick="toggleTheme()">Toggle dark mode</button>
+
+    <h1>Website Title</h1>
+
+    <div class="card">
+        <h3>Card example</h3>
+        <p>This box, borders, and text all change automatically.</p>
+        <div>
+            <a href="#">Example link</a>
+            <a href="#">skjfd</a>
+        </div>
+    </div>
+
+    <script>
+        function toggleTheme() {
+            document.body.classList.toggle("dark");
+        }
+    </script>
+
+</body>
+
+</html>
